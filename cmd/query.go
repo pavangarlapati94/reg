@@ -2,8 +2,10 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
+	"golang.org/x/sys/windows/registry"
 )
 
 // QueryCmd to query windows registry
@@ -21,7 +23,14 @@ USAGE:
 		if len(args) != 1 {
 			fmt.Println("Invalid number of arguments")
 			cmd.Help()
+		} else {
+			k, err := registry.OpenKey(registry.LOCAL_MACHINE, args[0], registry.QUERY_VALUE)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			} else {
+				fmt.Printf("Value of key %s is %+v\n", args[0], k)
+			}
 		}
-		fmt.Println("Siva Chegondi")
 	},
 }

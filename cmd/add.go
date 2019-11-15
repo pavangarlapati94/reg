@@ -21,7 +21,8 @@ USAGE:
 		if len(args) != 2 {
 			fmt.Println("Invalid number of Arguments")
 			cmd.Help()
+		} else {
+			fmt.Println(args)
 		}
-		fmt.Println(args)
 	},
 }

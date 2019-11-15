@@ -19,8 +19,10 @@ USAGE:
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
+			fmt.Println("Invalid number of Arguments")
 			cmd.Help()
+		} else {
+			fmt.Println(args);
 		}
-		fmt.Println(args);
 	},
 }
