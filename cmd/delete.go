@@ -6,8 +6,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// DeleteQuery to query windows registry
-var DeleteQuery = &cobra.Command{
+// DeleteCmd to query windows registry
+var DeleteCmd = &cobra.Command{
 	Use:   "DELETE",
 	Short: "Deletes windows registry",
 	Long: `
@@ -18,6 +18,9 @@ USAGE:
 	reg DELETE [key] // deletes given key in registry
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Siva Chegondi")
+		if len(args) != 1 {
+			cmd.Help()
+		}
+		fmt.Println(args);
 	},
 }

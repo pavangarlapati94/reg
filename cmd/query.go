@@ -18,6 +18,10 @@ USAGE:
 	reg QUERY [key] // queries given key in registry
 `,
 	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) != 1 {
+			fmt.Println("Invalid number of arguments")
+			cmd.Help()
+		}
 		fmt.Println("Siva Chegondi")
 	},
 }

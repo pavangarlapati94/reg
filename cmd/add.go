@@ -18,6 +18,10 @@ USAGE:
 	reg ADD [key] [value] // add given key value to registry
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Siva Chegondi")
+		if len(args) != 2 {
+			fmt.Println("Invalid number of Arguments")
+			cmd.Help()
+		}
+		fmt.Println(args)
 	},
 }
