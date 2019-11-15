@@ -26,16 +26,14 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "reg",
 	Short: "reg is mimic of reg.exe with limited operations",
-	Long: `
-		reg is mimic of Windows reg.exe CLI
-		This tool is limited to QUERY, ADD, DELETE operations
+	Long: `reg is mimic of Windows reg.exe CLI
+This tool is limited to QUERY, ADD, DELETE operations
 
-		USAGE: 	reg [OPERATION] [options]
-		Examples: 
-				reg ADD [key] [value]
-				reg QUERY [key]
-				reg DELETE [key]
-	`,
+USAGE: 	reg [OPERATION] [options]
+Examples:
+		reg ADD [key] [value]
+		reg QUERY [key]
+		reg DELETE [key]`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
@@ -44,7 +42,6 @@ var rootCmd = &cobra.Command{
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	fmt.Println("lets see")
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -55,7 +52,9 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	// Adding Sub Commands (Query, Add, Delete)
+	rootCmd.AddCommand(AddCmd)
 	rootCmd.AddCommand(QueryCmd)
+	rootCmd.AddCommand(DeleteCmd)
 }
 
 // initConfig reads in config file and ENV variables if set.

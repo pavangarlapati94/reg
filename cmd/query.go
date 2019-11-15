@@ -11,11 +11,12 @@ var QueryCmd = &cobra.Command{
 	Use:   "QUERY",
 	Short: "Queries windows registry",
 	Long: `
-	Use this command to query windows registry
+Use this command to query windows registry
 	
-	USAGE: 	reg query -h // prints help
-			reg query [key] // queries given key in registry
-	`,
+USAGE:
+	reg QUERY -h // prints help
+	reg QUERY [key] // queries given key in registry
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Siva Chegondi")
 	},
